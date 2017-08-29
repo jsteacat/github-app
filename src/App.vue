@@ -29,7 +29,6 @@
           <router-link :to="{ name: 'user' }">User</router-link>
         </md-list-item>
       </md-list>
-      
     </md-sidenav>
 
     <div class="main-content">
