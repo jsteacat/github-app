@@ -1,0 +1,55 @@
+<md-table @sort="sortRepos">
+    <md-table-header>
+        <md-table-row>
+            <md-table-head md-sort-by="name">
+                Name
+            </md-table-head>
+            <md-table-head>
+                Description
+            </md-table-head>
+            <md-table-head>
+                Number of Stars
+            </md-table-head>
+            <md-table-head>
+                Number of Forks
+            </md-table-head>
+            <md-table-head>
+                Number of Open Issues
+            </md-table-head>
+            <md-table-head md-sort-by="language">
+                Language
+            </md-table-head>
+            <md-table-head md-sort-by="size">
+                Size
+            </md-table-head>
+        </md-table-row>
+    </md-table-header>
+    <md-table-body>
+        <md-table-row v-for="r in repos" :key="r.id">
+            <md-table-cell>
+                <a :href="r.html_url" target="_blank">{{ r.name }}</a>
+            </md-table-cell>
+            <md-table-cell>
+                {{ r.description }}
+            </md-table-cell>
+            <md-table-cell>
+                {{ r.stargazers_count }}
+            </md-table-cell>
+            <md-table-cell>
+                {{ r.forks_count }}
+            </md-table-cell>
+            <md-table-cell>
+                {{ r.open_issues_count }}
+            </md-table-cell>
+            <md-table-cell>
+                {{ r.language }}
+            </md-table-cell>
+            <md-table-cell>
+                {{ r.size }}Kb
+            </md-table-cell>
+        </md-table-row>
+        <md-table-row v-if="repos.length === 0">
+            <md-table-cell colspan="7">No repositories found...</md-table-cell>
+        </md-table-row>
+    </md-table-body>
+</md-table>
